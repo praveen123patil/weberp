@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a class="btn btn-primary" href="{% url 'newcustomer' %}" role="button">Add New Customer</a> <hr/>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Customer Id</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+       <th scope="col"> Activity </th>
+    </tr>
+  </thead>
+  <tbody>
+{% for detail in cust %}
+    <tr>
+      <th scope="row"> {{ detail.id }}</th>
+      <td>{{ detail.name }}</td>
+      <td>{{ detail.contact }}</td>
+      <td>{{ detail.email_id }}</td>
+      <td>{{ detail.address }}</td>
+      <td><a class="btn btn-link" href="{% url 'editcustomer' detail.id %}"> Update </a>
+      <a class="btn btn-link confirm-delete" href="{% url 'deletecustomer' pk=detail.pk %}"> Remove </a>  </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> 
+{% endblock %}

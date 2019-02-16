@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a class="btn btn-primary" href="{% url 'newsupplier' %}" role="button">Add New supplier</a> <hr/>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Supplier Id</th>
+      <th scope="col">Supplier Name</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">Activity </th>
+    </tr>
+  </thead>
+  <tbody>
+{% for detail in supp %}
+    <tr>
+      <th scope="row"> {{ detail.id }}</th>
+      <td>{{ detail.name }}</td>
+      <td>{{ detail.contact }}</td>
+      <td>{{ detail.email_id }}</td>
+      <td>{{ detail.address }}</td>
+      <td><a class="btn btn-link" href="{% url 'editsupplier' detail.id %}"> Update </a>
+      <a class="btn btn-link confirm-delete"  href="{% url 'deletesupplier' pk=detail.pk %}"> Remove </a>  </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> 
+{% endblock %}
+

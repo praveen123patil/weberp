@@ -1,0 +1,43 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+<form>
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail4">Production Date</label>
+                        <input type="date" class="form-control" id="" value="">
+                    </div>
+                    <div class="form-group col-md-4">
+                            <label for="inputEmail4">Shift</label>
+                             <select type="text" class="form-control" id="inputEmail4">
+                            <option>Shift 1</option>
+                            <option>Shift 2</option>
+                            <option>Shift 3</option>
+                            <option>Shift 4</option>
+                            <option>Shift 5</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                            <label for="inputEmail4">Item</label>
+                             <select type="text" class="form-control" id="inputEmail4">
+                            <option>Item 1</option>
+                            <option>Item 2</option>
+                            <option>Item 3</option>
+                            <option>Item 4</option>
+                            <option>Item 5</option>
+                        </select>
+                    </div>
+                     <div class="form-group col-md-4">
+                            <label for="inputEmail4">Batch number</label>
+                             <select type="text" class="form-control" id="inputEmail4">
+                            <option>Batch 1</option>
+                            <option>Batch 2</option>
+                            <option>Batch 3</option>
+                            <option>Batch 4</option>
+                            <option>Batch 5</option>
+                        </select>
+                    </div>
+                </div>
+                    <button type="Generate PO" class="btn btn-primary">Add Production</button> 
+                </div>
+            </form>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a class="btn btn-primary" href="{% url 'newrawitem' %}" role="button">Add New item</a> <hr/>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Raw-Item-Code</th>
+      <th scope="col">Raw-Item-Name</th>
+      <th scope="col">Raw-Item-Rate</th>
+      <th scope="col">Description</th>
+      <th scope="col">Created Date</th>
+       <th scope="col"> Activity </th>
+    </tr>
+  </thead>
+  <tbody>
+{% for detail in orderlist %}
+    <tr>
+      <th scope="row"> {{ detail.id }}</th>
+      <td>{{ detail.rawitem }}</td>
+      <td>{{ detail.rawitem.rate }}</td>
+      <td>{{ detail.quantity }}</td>
+      <td>{{ detail.supplier }}</td>
+      <td>{{ detail.total }}</td>
+      <td>{{ detail.created_date }}</td>
+      <td><a class="btn btn-link" href="{% url 'editrawitem' detail.id %}"> Update </a>
+      <a class="btn btn-link confirm-delete" href="{% url 'deleterawitem' pk=detail.pk %}"> Remove </a>  </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> 
+{% endblock %}
