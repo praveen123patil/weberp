@@ -1,38 +1,25 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% block content %}        
+{% block content %}
 
 
-         <form>
-              <table border="2pts" class="table">
-                              <thead>
-                                <tr>
-                                  <th scope="col">SI.No</th>
-                                  <th scope="col">Item Name</th>
-                                  <th scope="col">In Stock</th>
-                                  <!-- <th scope="col">Handle</th> -->
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1</th>
-                                  <td>#</td>
-                                  <td>#</td>
-                                  <!-- <td>#</td> -->
-                                </tr>
-                                <tr>
-                                  <th scope="row">2</th>
-                                  <td>#</td>
-                                  <td>#</td>
-                                  <!-- <td>@fat</td> -->
-                                </tr>
-                                <tr>
-                                  <th scope="row">3</th>
-                                  <td>#</td>
-                                  <td>#</td>
-                                  <!-- <td>@twitter</td> -->
-                                </tr>
-                              </tbody>
-                            </table>
-            </form>
-            {% endblock %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Raw Item Name</th>
+      <th scope="col"> total Quantity</th>
+      <th scope="col">Supplier</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for detail in materials %}
+    <tr>
+      <th scope="row"> {{ detail.id }}</th>
+      <td>{{ detail.rawitem }}</td>
+      <td>{{ detail.quantity }}</td>
+      <td>{{ detail.supplier }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> 
+{% endblock %}

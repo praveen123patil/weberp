@@ -21,7 +21,7 @@ def newrawitem(request):
 def editrawitem(request, pk):
 	rawitem = get_object_or_404(Rawitem, pk=pk)
 	if request.method == "POST":
-		form = RawitemForm(request.POST, instance=item)
+		form = RawitemForm(request.POST, instance=rawitem)
 		if form.is_valid():
 			form.save()
 			return redirect('raw_item_master')
@@ -45,13 +45,22 @@ def purchase(request):
 	return render(request, 'material/purchase.html', {'form': form})
 
 def purchase_order_list(request):
-	orderlist=Purchase.objects.all()
+	orderlist=Purchase.objects.filter(receives = False).order_by('date')
 	return render(request,'material/purchase_order_list.html',{'orderlist':orderlist})
 
+def material_received(request, pk):
+	material = get_object_or_404(Purchase, pk=pk)
+	material.received()
+	return redirect('purchase_order')
 
 
-def recieved(request):
-	return render(request, 'material/recieved.html',)
+def received(self):
+	self.receives = True
+	self.save()
+	
+def material_received_list(request):
+	materials = Purchase.objects.filter(receives = True).order_by('date')
+	return render(request, 'material/recieved.html',{'materials':materials})
 
 def stock(request):
 	return render(request, 'material/stock.html',)

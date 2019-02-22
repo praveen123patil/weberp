@@ -7,12 +7,13 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Raw-Item-Code</th>
-      <th scope="col">Raw-Item-Name</th>
+      <th scope="col">Purchase Id</th>
+      <th scope="col">Raw Item Name</th>
       <th scope="col">Raw-Item-Rate</th>
-      <th scope="col">Description</th>
-      <th scope="col">Created Date</th>
-       <th scope="col"> Activity </th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Supplier</th>
+       <th scope="col"> Total rate </th>
+       <th scope="col"> Recieved Material </th>
     </tr>
   </thead>
   <tbody>
@@ -24,8 +25,7 @@
       <td>{{ detail.quantity }}</td>
       <td>{{ detail.supplier }}</td>
       <td>{{ detail.total }}</td>
-      <td>{{ detail.created_date }}</td>
-      <td><a class="btn btn-link" href="{% url 'editrawitem' detail.id %}"> Update </a>
+      <td><a class="btn btn-link" href="{% url 'material_received' detail.id %}"> Yes </a>
       <a class="btn btn-link confirm-delete" href="{% url 'deleterawitem' pk=detail.pk %}"> Remove </a>  </td>
     </tr>
     {% endfor %}

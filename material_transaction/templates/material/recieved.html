@@ -1,57 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form>
-                <div class="form-row">
-                    <!-- <div class="form-group col-md-4"> -->
-                        <label for="inputEmail4">Select PO No</label>
-                        <div class="form-group col-md-4">
-                        <select type="text" class="form-control" id="inputEmail4" placeholder="Select Item">
-                            <option>SPONo1</option>
-                            <option>SPONo2</option>
-                            <option>SPONo3</option>
-                            <option>SPONo4</option>
-                            <option>SPONo5</option>
-                        </select>
-                </div>
-                <!-- <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputEmail4">Quantity</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Enter Quantity" pattern="[0-9]">
-                    </div>
-                </div> -->
-                <!--  <div class="form-row">
-                    <div class="form-group col-md-4">
-                         <label for="inputAddress">Rate</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Enter Rate " pattern="[0-9]{10}">
-                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                          <label for="inputAddress">Description</label>
-                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                </div> -->
-               <div class="form-group col-md-4">
-                 <button type="Get PO" class="btn btn-primary">Get PO</button>
-                </div>
-            </div>
-                <!--  <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputEmail4">PO Date</label>
-                        <input type="date" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="form-group col-md-4">
-                            <label for="inputEmail4">Select Supplier</label>
-                             <select type="text" class="form-control" id="inputEmail4">
-                            <option>Supplier1</option>
-                            <option>Supplier2</option>
-                            <option>Supplier3</option>
-                            <option>Supplier4</option>
-                            <option>Supplier5</option>
-                        </select>
-                    </div>
-                    </div> -->
-                </div>
-            </form>
-            {% endblock %}
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Purchase Id</th>
+      <th scope="col">Raw Item Name</th>
+      <th scope="col">Raw-Item-Rate</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Supplier</th>
+       <th scope="col"> Total rate </th>
+    </tr>
+  </thead>
+  <tbody>
+{% for detail in materials %}
+    <tr>
+      <th scope="row"> {{ detail.id }}</th>
+      <td>{{ detail.rawitem }}</td>
+      <td>{{ detail.rawitem.rate }}</td>
+      <td>{{ detail.quantity }}</td>
+      <td>{{ detail.supplier }}</td>
+      <td>{{ detail.total }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> 
+{% endblock %}
