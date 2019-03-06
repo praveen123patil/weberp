@@ -4,21 +4,22 @@
 
  {% block content %}
  <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'master' %}">Master</a></li>
-    <li class="breadcrumb-item"><a href="{% url 'purchase_order' %}"> Purchase</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Add new item</li>
-  </ol>
+  	<ol class="breadcrumb">
+	    <li class="breadcrumb-item"><a href="{% url 'master' %}">Master</a></li>
+	    <li class="breadcrumb-item"><a href="{% url 'purchase_order' %}"> Purchase</a></li>
+	    <li class="breadcrumb-item active" aria-current="page">Add new item</li>
+  	</ol>
 </nav>
- <form method=POST>
+ 
+<form method=POST>
     <div style="color:black;" class="col-md-4">
-    {% csrf_token %}
+	    {% csrf_token %}
 
-    {{ form|crispy }}
-</div>
+	    {{ form|crispy }}
+	</div>
 
- <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+ 	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 
 {% endblock %}
