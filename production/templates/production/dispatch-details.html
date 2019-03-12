@@ -1,0 +1,36 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="">
+	{% csrf_token %}
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="First name" value="{{dispatch.item}}" name="item">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Last name" value="{{dispatch.Workorder_id.Quantity}}" name="Quantity">
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="First name" value="{{dispatch.item.price}}" name="price">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Last name" value="{{dispatch.Workorder_id.total}}" name="total">
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="First name" value="{{dispatch.Workorder_id.Select_customer}}" name="Select_customer">
+    </div>
+    <div class="form-row">
+    <div class="col">
+      <input type="date" class="form-control" placeholder="First name" name="dispatch_date">
+    </div>
+  <button type="submit"> Submit </button>
+</form>
+
+
+
+
+{% endblock %}

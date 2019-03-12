@@ -10,6 +10,9 @@
       <th scope="col">Shift</th>
       <th scope="col">Item</th>
       <th scope="col">Batch number</th>
+<th scope='col'>Total Production</th>
+<th scope='col'>Packaging</th>
+
     </tr>
   </thead>
   <tbody>
@@ -21,6 +24,7 @@
       <td>{{ detail.item }}</td>
       <td>{{ detail.batch_number }}</td>
       <td>{{ detail.total_production }}</td>
+      <td><a class="btn btn-link" href="{% url 'item_packed' detail.id %}"> Pack </a>
     </tr>
     {% endfor %}
   </tbody>
