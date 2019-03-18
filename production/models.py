@@ -29,20 +29,18 @@ class Production(models.Model):
 	batch_number = models.PositiveIntegerField()
 	total_production = models.PositiveIntegerField()
 	pack=models.BooleanField(default=False)
+	dispatched=models.BooleanField(default=False)
+	dispatched_date = models.DateField()
 
 
 	def packed(self):
 		self.pack = True
 		self.save()
-
-class Dispatch(models.Model):
-	item=models.CharField(max_length=1)
-	Quantity = models.PositiveIntegerField(blank=True)
-	price = models.PositiveIntegerField()
-	total=models.PositiveIntegerField(editable=False)
-	Select_customer = models.CharField(max_length=1)
-	dispatch_date = models.DateField()
-
+	
+	def dispatch(self):
+		self.dispatched = True
+		self.dispatched_date = timezone.now()
+		self.save()
 	
 
 

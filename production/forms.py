@@ -1,5 +1,5 @@
 from django import forms
-from .models import Workorder,Production,Dispatch
+from .models import Workorder,Production
 
 class WorkorderForm(forms.ModelForm):
 
@@ -12,9 +12,3 @@ class ProductionForm(forms.ModelForm):
 	class Meta:
 		model = Production
 		fields = '__all__'		
-
-class DispatchForm(forms.ModelForm):
-
-	class Meta:
-		model = Dispatch
-		fields = '__all__'

@@ -24,7 +24,7 @@
       <td>{{ detail.item }}</td>
       <td>{{ detail.batch_number }}</td>
       <td>{{ detail.total_production }}</td>
-      <td><a class="btn btn-link" href="{% url 'dispatch' detail.id %}"> Dispatch </a>
+      <td><a class="btn btn-link" href="{% url 'dispatched' detail.id %}"> Dispatch </a>
     </tr>
     {% endfor %}
   </tbody>

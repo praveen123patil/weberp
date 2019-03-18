@@ -26,7 +26,8 @@
       <td>{{ detail.supplier }}</td>
       <td>{{ detail.total }}</td>
       <td><a class="btn btn-link" href="{% url 'material_received' detail.id %}"> Yes </a>
-      <a class="btn btn-link confirm-delete" href="{% url 'deleterawitem' pk=detail.pk %}"> Remove </a>  </td>
+      <a class="btn btn-link confirm-delete" href="{% url 'deleterawitem' pk=detail.pk %}"> Remove </a> 
+       <a class="btn btn-link" href="{% url 'purchase_bill' pk=detail.pk %}"> Print </a>  </td>
     </tr>
     {% endfor %}
   </tbody>

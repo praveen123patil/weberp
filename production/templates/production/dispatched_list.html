@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3> <center> Dispatched-list </center> </h3><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Item</th>
+      <th scope="col">Dispatch Date</th>
+      <th scope="col">Customer</th>
+      <th scope="col"> Quantity</th>
+      <th scope="col"> Total Price </th>
+    </tr>
+  </thead>
+  <tbody>
+{% for detail in dispatched %}
+    <tr>
+      <th scope="row"> {{ detail.item }}</th>
+      <td>{{ detail.dispatched_date }}</td>
+      <td>{{ detail.Workorder_id.Select_customer }}</td>
+      <td>{{ detail.Workorder_id.Quantity }}</td>
+      <td>{{ detail.Workorder_id.total }}</td>
+      <td><a class="btn btn-link" href="{% url 'purchase_bill' pk=detail.pk %}"> Print </a>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> 
+{% endblock %}

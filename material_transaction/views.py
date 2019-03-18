@@ -44,6 +44,10 @@ def purchase(request):
 		form = PurchaseForm()
 	return render(request, 'material/purchase.html', {'form': form})
 
+def purchase_bill(request, pk):
+	purchase_bill = get_object_or_404(Purchase, pk=pk)
+	return render(request,'material/print.html', {'purchase_bill' : purchase_bill})
+
 def purchase_order_list(request):
 	orderlist=Purchase.objects.filter(receives = False).order_by('date')
 	return render(request,'material/purchase_order_list.html',{'orderlist':orderlist})

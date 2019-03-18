@@ -11,5 +11,4 @@ class PurchaseForm(forms.ModelForm):
 
 	class Meta:
 		model = Purchase
-		fields = '__all__'
-	
+		exclude = ['receives','counts']
