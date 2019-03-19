@@ -30,12 +30,19 @@ class Production(models.Model):
 	total_production = models.PositiveIntegerField()
 	pack=models.BooleanField(default=False)
 	dispatched=models.BooleanField(default=False)
-	dispatched_date = models.DateField()
+	dispatched_date = models.DateField(null=True)
+	sgst=models.FloatField(blank=True)
+	grand_total=models.PositiveIntegerField(editable=False)
 
 
 	def packed(self):
 		self.pack = True
 		self.save()
+
+	def save(self,*args,**kwargs):
+		self.sgst = (self.Workorder_id.total/100)*9	
+		self.grand_total = self.sgst+self.Workorder_id.total
+		super(Production, self).save(*args,**kwargs)
 	
 	def dispatch(self):
 		self.dispatched = True

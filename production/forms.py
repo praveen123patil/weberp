@@ -11,4 +11,4 @@ class ProductionForm(forms.ModelForm):
 
 	class Meta:
 		model = Production
-		fields = '__all__'		
+		exclude = ['sgst','dispatched_date','pack','dispatched']	

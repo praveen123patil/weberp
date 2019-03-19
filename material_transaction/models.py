@@ -20,13 +20,19 @@ class Purchase(models.Model):
 	total=models.PositiveIntegerField(editable=False)
 	receives=models.BooleanField(default=False)
 	counts=models.PositiveIntegerField(null=True, blank=True)
+	sgst=models.FloatField(null=True, blank=True, editable=False)
+	grand_total=models.PositiveIntegerField(editable=False)
+
 
 	def __str__(self):
 		return self.rawitem
 
-
 	def save(self,*args,**kwargs):
 		self.total = self.rawitem.rate*self.quantity
+		self.sgst = (self.total/100)*9	
+		self.grand_total = self.sgst+self.total
+		self.counts = 0
+		self.counts = self.counts+self.quantity
 		super(Purchase, self).save(*args,**kwargs)
 
 	def received(self):
