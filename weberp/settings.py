@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'production',
     'crispy_forms',
     'accounts',
+    'report',
 ]
 
 MIDDLEWARE = [

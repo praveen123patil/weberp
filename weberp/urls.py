@@ -22,4 +22,5 @@ urlpatterns = [
     path('',include('master.urls')),
     path('material-transaction/',include('material_transaction.urls')),
     path('production/',include('production.urls')),
+    path('report/',include('report.urls')),
 ]
