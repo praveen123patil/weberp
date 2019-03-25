@@ -51,11 +51,11 @@ def dispatch(self):
 		self.save()
 
 def dispatch_bill(request, pk):
-	dispatch_bill = get_object_or_404(dispatched, pk=pk)
-	return render(request,'material/print.html', {'dispatch_bill' : dispatch_bill})
+	dispatch_bill = get_object_or_404(Production, pk=pk)
+	return render(request, 'production/print1.html', {'dispatch_bill' : dispatch_bill})
 
 def dispatched_list(request):
-	dispatched = Production.objects.filter(dispatched = True).order_by('dispatched_date')
+	dispatched = Production.objects.filter(dispatched = True).order_by('dispatched_date')		
 	return render(request, 'production/dispatched_list.html', {'dispatched': dispatched})
 
 def packorder(request):

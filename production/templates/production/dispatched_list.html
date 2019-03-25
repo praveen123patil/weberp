@@ -20,7 +20,7 @@
       <td>{{ detail.Workorder_id.Select_customer }}</td>
       <td>{{ detail.Workorder_id.Quantity }}</td>
       <td>{{ detail.Workorder_id.total }}</td>
-      <td><a class="btn btn-link" href="{% url 'purchase_bill' pk=detail.pk %}"> Print </a>
+      <td><a class="btn btn-link" href="{% url 'dispatch_bill' pk=detail.pk %}"> Print </a>
     </tr>
     {% endfor %}
   </tbody>
